@@ -163,7 +163,7 @@ setFavMovList(favMov);
   return (
     <div>
       <div className='genreBoxList'>
-        {genreListData.map((genre,index)=>{
+        {genreListData && genreListData.map((genre,index)=>{
           return (<button className='myBtn' key={index} onClick={()=>setButtonPressedHandler(genre)}>{genre}</button>)
         })}
       </div>
