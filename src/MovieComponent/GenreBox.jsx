@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 /* eslint-disable react-hooks/exhaustive-deps */
 // /* eslint-disable react-hooks/exhaustive-deps */
 
@@ -95,33 +96,38 @@ import { useState } from 'react';
 import './GenreBox.css';
 import TableForData from './TableForData';
 
-function GenreBox() {
+function GenreBox(props) {
 
+  const [buttonPressed,setButtonPressed] = useState("");
   const [genreListData,setGenreListData]=useState([]);
-const [favMovList,setFavMovList] = useState([]);
-  useEffect(()=>{
-    let genreList = JSON.parse(localStorage.getItem("genreList"||"[]"));
-    setGenreListData(genreList);
-    let favMov = JSON.parse(localStorage.getItem("favourites" || "[]"));
-setFavMovList(favMov);
-  },[])
-
-  let [buttonPressed,setButtonPressed] = useState("AllGenres");
-  let [tableData,setTableData] = useState([]);
-  // localStorage.setItem("displayFilterList",JSON.stringify([]));
-
-  useEffect(()=>{
-    updateMovieList();
-  },[buttonPressed]);
-
+  const [favMovList,setFavMovList] = useState([]);
+  const [tableData,setTableData] = useState([]);
   const [pgNo,setpgNo] = React.useState(1);
 
-  const setButtonPressedHandler=(genre)=>{
+useEffect(()=>{
+  setButtonPressed(props.btnPress);
+  let favMov = JSON.parse(localStorage.getItem("favourites" || "[]"));//task one
+  setFavMovList(favMov);
+  let genreList = JSON.parse(localStorage.getItem("genreList"||"[]"));
+    setGenreListData(genreList);
+    updateMovieList("AllGenres");
+},[])
+
+useEffect(()=>{
+    let genreList = JSON.parse(localStorage.getItem("genreList"||"[]"));//task one side two
+    setGenreListData(genreList);
+    let favMov = JSON.parse(localStorage.getItem("favourites" || "[]"));
+    setFavMovList(favMov);
+    updateMovieList(buttonPressed);
+},[buttonPressed,removeFromFav]);
+
+const setButtonPressedHandler=(genre)=>{//task one side one
+    // console.log(genre);
     setButtonPressed(genre);
     setpgNo(1);
   }
-  const updateMovieList = () => {
-    // console.log(genre);
+
+  const updateMovieList = (myBtn) => {//task two
     let genreids = {28:'Action',12:'Adventure',16:'Animation',35:'Comedy',
     80:'Crime',99:'Documentary',18:'Drama',
     14:'Fantasy',36:'History',27:'Horror',10402:'Music',
@@ -129,40 +135,92 @@ setFavMovList(favMov);
     53:'Thriller',10752:'War',37:'Western',10751:'Family'};
     const data = [];
 
-    // console.log("favMov",favMov);
-
-    if(buttonPressed === "AllGenres"){
-      console.log("in AllGenre");
-      favMovList.forEach(movieObj => {
+    if(myBtn === "AllGenres"){
+      // console.log("in AllGenre");
+       favMovList && favMovList.forEach(movieObj => {
         data.push(movieObj);
       });
       localStorage.setItem("displayFilterList",JSON.stringify(data));
       setTableData(data);
     } else { 
-        // let allAction = favMov.filter((fav,index)=>{
-        //     // return genreids[fav.genre_ids[0]]==="Action";
-        //     let myGen = ;
-        //     if (movieObj.genre_ids.map(id=>{ return genreids[id]}).includes(buttonPressed)) {
-        //     return movieObj;
-        // });
-
         favMovList.forEach(movieObj => {
         let myGen = movieObj.genre_ids.map(id=>{ return genreids[id]});
-        if (myGen.includes(buttonPressed)) {
+        if (myGen.includes(myBtn)) {
         data.push(movieObj);
         }
       })
       localStorage.setItem("displayFilterList",JSON.stringify(data));
       setTableData(data);
     }
-    // setTableData(data);
-    console.log("data",data);
-    console.log("tableData",tableData);
+    // console.log("data",data);
+    // console.log("tableData",tableData);
+  }
+
+
+  function removeFromFav(uniqueMovieId){
+    let genreids = {28:'Action',12:'Adventure',16:'Animation',35:'Comedy',
+    80:'Crime',99:'Documentary',18:'Drama',
+    14:'Fantasy',36:'History',27:'Horror',10402:'Music',
+    9648:'Mystery',10749:'Romance',878:'SciFi',10770:'TV',
+    53:'Thriller',10752:'War',37:'Western',10751:'Family'};
+    // console.log(uniqueMovieId);
+    let favMovies = JSON.parse(localStorage.getItem("favourites"));
+    let result = favMovies.filter(
+      (movieObj)=>{
+        return movieObj.id !== uniqueMovieId;
+      }
+    );
+    //for genreDeletion
+    let favListArray = JSON.parse(localStorage.getItem("favourites")||"[]");
+    let myResultDeleted = favListArray.filter((movieObj)=>{
+        return movieObj.id === uniqueMovieId;
+      });
+    //delete from favorites
+     let prevStArray = localStorage.getItem("favourites")||"[]";
+     let prevArray = JSON.parse(prevStArray);
+     prevArray = prevArray.filter((movieObj)=>{
+       return movieObj.id !== uniqueMovieId;
+     })
+     let prevArray2 = JSON.stringify(prevArray);
+     localStorage.setItem("favourites",prevArray2);
+      
+    // delete genre from genreList if not repeated
+    let status = false;
+    if(result.length > 0){
+      if(typeof myResultDeleted[0].genre_ids != "undefined"){
+      myResultDeleted[0].genre_ids.forEach((genrelistItem)=>{
+      status = false;
+      for(let i = 0 ; i < prevArray.length; i++ ){
+        for(let j = 0 ; j <prevArray[i].genre_ids.length;j++ ){
+          if(genreids[genrelistItem] === genreids[prevArray[i].genre_ids[j]]){
+            console.log("present in list");
+                status = true;
+                break;
+              }
+        }
+        if(status === true){
+          break;
+        }else{//remove from genreList
+          let favPrevArray = JSON.parse(localStorage.getItem("genreList")||"[]");
+          let deletedGenreList = favPrevArray.filter((favGenre)=>{
+            return favGenre !== genreids[genrelistItem];
+          });
+          localStorage.setItem("genreList",JSON.stringify(deletedGenreList));
+        }
+      }
+  });
+}
+}else{
+    //set genreList empty
+    localStorage.setItem("genreList",JSON.stringify([]));
+  }
+  updateMovieList(buttonPressed);
   }
 
   return (
     <div>
       <div className='genreBoxList'>
+      <button className='myBtn' onClick={()=>setButtonPressedHandler("AllGenres")}>AllGenres</button>
         {genreListData && genreListData.map((genre,index)=>{
           return (<button className='myBtn' key={index} onClick={()=>setButtonPressedHandler(genre)}>{genre}</button>)
         })}
@@ -170,7 +228,9 @@ setFavMovList(favMov);
       <TableForData
       buttonPressed={buttonPressed}
       pgNo={pgNo}
+      removeFromFav={removeFromFav}
       updateMovieList={updateMovieList}
+      tableData={tableData}
       />
     </div>
   )

@@ -601,7 +601,7 @@ function Favorite() {
   return (
     <div>
       <Header/>
-      <GenreBox/>
+      <GenreBox btnPress="AllGenres" />
     </div>
   )
 }

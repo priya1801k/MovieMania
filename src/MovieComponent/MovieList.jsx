@@ -58,7 +58,7 @@ function MovieList(props) {
     //if movie already included in fav then don't add
         // if(!status){ 
     for(let i = 0 ; i < Movies.length; i++ ){
-      console.log("presentInFav(uniqueMovieId)",presentInFav(uniqueMovieId));
+      // console.log("presentInFav(uniqueMovieId)",presentInFav(uniqueMovieId));
       if(Movies[i].id === uniqueMovieId && !presentInFav(uniqueMovieId)){
          setFavMovies([...favMovies,Movies[i]]);
         //add all different genres to localStorage
