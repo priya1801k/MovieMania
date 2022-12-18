@@ -97,7 +97,13 @@ import TableForData from './TableForData';
 
 function GenreBox() {
 
-  let genreList = JSON.parse(localStorage.getItem("genreList"||"[]"));
+  let [genreListData,setGenreListData]=useState([]);
+
+  useEffect(()=>{
+    let genreList = JSON.parse(localStorage.getItem("genreList"||"[]"));
+setGenreListData(genreList);
+  },[])
+
   let [buttonPressed,setButtonPressed] = useState("AllGenres");
   let [tableData,setTableData] = useState([]);
   // localStorage.setItem("displayFilterList",JSON.stringify([]));
@@ -156,7 +162,7 @@ function GenreBox() {
   return (
     <div>
       <div className='genreBoxList'>
-        {genreList.map((genre,index)=>{
+        {genreListData.map((genre,index)=>{
           return (<button className='myBtn' key={index} onClick={()=>setButtonPressedHandler(genre)}>{genre}</button>)
         })}
       </div>
