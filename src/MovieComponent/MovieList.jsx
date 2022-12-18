@@ -44,6 +44,7 @@ function MovieList(props) {
 
   function presentInFav(uniqueMovieId){
     let fav = JSON.parse(localStorage.getItem("favourites"));
+    console.log("fav leng",fav.length);
      for(let i = 0 ; i < fav.length; i++ ){
       if(fav[i].id === uniqueMovieId){
         console.log(fav[i].id,uniqueMovieId);
