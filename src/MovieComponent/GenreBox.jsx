@@ -98,10 +98,12 @@ import TableForData from './TableForData';
 function GenreBox() {
 
   let [genreListData,setGenreListData]=useState([]);
-
+const [favMovList,setFavMovList] = useState([]);
   useEffect(()=>{
     let genreList = JSON.parse(localStorage.getItem("genreList"||"[]"));
-setGenreListData(genreList);
+    setGenreListData(genreList);
+    let favMov = JSON.parse(localStorage.getItem("favourites" || "[]"));
+setFavMovList(favMov);
   },[])
 
   let [buttonPressed,setButtonPressed] = useState("AllGenres");
@@ -127,12 +129,11 @@ setGenreListData(genreList);
     53:'Thriller',10752:'War',37:'Western',10751:'Family'};
     const data = [];
 
-    let favMov = JSON.parse(localStorage.getItem("favourites" || "[]"));
     // console.log("favMov",favMov);
 
     if(buttonPressed === "AllGenres"){
       console.log("in AllGenre");
-      favMov.forEach(movieObj => {
+      favMovList.forEach(movieObj => {
         data.push(movieObj);
       });
       localStorage.setItem("displayFilterList",JSON.stringify(data));
@@ -145,7 +146,7 @@ setGenreListData(genreList);
         //     return movieObj;
         // });
 
-      favMov.forEach(movieObj => {
+        favMovList.forEach(movieObj => {
         let myGen = movieObj.genre_ids.map(id=>{ return genreids[id]});
         if (myGen.includes(buttonPressed)) {
         data.push(movieObj);
