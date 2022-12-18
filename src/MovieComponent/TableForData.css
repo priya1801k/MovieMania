@@ -1,0 +1,86 @@
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+.btn-delete_smallScreen{
+  display: none;
+}
+.searchBoxes{
+    background-color: whitesmoke;
+    height: 1.7rem;
+    width: 18rem;
+    border-radius: 10px;
+    margin: 2px;
+    text-align: center;
+  }
+  .searchHere{
+    text-align: center;
+    margin-bottom: 5px;
+    background-color: rgb(110, 227, 110);
+  }
+  .imgFav{
+    transition: all 0.5s ease-in-out;
+  }
+  .imgFav:hover{
+    transform: scale(3);
+    border-radius: 14px;
+  }
+  .btn-delete{
+    cursor: pointer;
+    transition: all ;
+  }
+  .btn-delete:hover{
+    transform: scale(1.1);
+    background-color: rgb(201, 86, 86);;
+  }
+
+  @media (max-width:600px){
+    .searchBoxes{
+      background-color: whitesmoke;
+      height: 4rem;
+      width: 90%;
+      border-radius: 10px;
+      margin: 2px; 
+      text-align: center; 
+      font-size: 2rem;
+    }
+    .searchHere{
+      width: 100%;
+      padding: 10px;
+      text-align: center; 
+      margin:auto;
+      margin-bottom: 0px; 
+       background-color: rgb(110, 227, 110); 
+    }
+    .imgFav{
+      transition: none;
+    }
+    .imgFav:hover{
+      transform: none;
+      border-radius: 14px;
+    }
+    .btn-delete{
+      cursor: pointer;
+      transition: none ;
+      display: none;
+    }
+    .btn-delete_smallScreen{
+       display: block;
+       background-color: rgb(227, 127, 127)
+    }
+    .btn-delete:hover{
+      transform: none;
+      background-color: rgb(227, 127, 127);
+    }
+    .nameFav{
+      display: flex;
+      flex-direction: column;
+    }
+    .myTable{
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .footer_spacing{
+      height: 3.5rem;
+    }
+  }

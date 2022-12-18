@@ -1,0 +1,387 @@
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+/* 
+ @media (max-width:600px) {  
+.trending-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.titleTrending{
+  text-align: center;
+  background-color: white;
+}
+.searchBox{
+  background-color: whitesmoke;
+  height: 1.7rem;
+  width: 80%;
+  border-radius: 10px;
+  text-align: center;
+}
+.searchMe{
+  text-align: center;
+  margin-bottom: 5px;
+} 
+ .list-box {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 30rem;
+  margin-bottom: 1rem; 
+   border: 1px solid gray;
+  border-radius: 15px; 
+  overflow: hidden;
+ }
+
+.list-img {
+  height: 80%;
+}
+
+.trending-box > * {
+  text-align: center;
+  background-color: grey;
+}
+
+.FcCheckmark{
+  height: 30px; 
+width:30px; 
+	padding: 10px;
+	background-color: green;
+	border-radius: 16px;
+cursor: pointer;
+}
+.FcPlus{
+  height: 30px;
+  width:30px; 
+	padding: 10px;
+	background-color: green;
+	border-radius: 16px;
+  cursor: pointer;
+}   
+.addToFavContainer{
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  top: 0px;
+  right: 0px;
+}
+.list-box:hover{
+  transform: none;
+}
+}   */
+@media (min-width:0px)and (max-width:400px) { 
+  .trending-box {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-inline-start: 1rem;
+  }
+  .movieName{
+      font-size: 10px;
+  }
+  .contentBox{
+    background-image: linear-gradient(rgb(206, 154, 206),rgb(72, 36, 36),rgb(191, 191, 85),rgb(200, 108, 124),rgb(83, 53, 83),rgb(63, 94, 63));
+  }
+  .titleTrending{
+    background-image: linear-gradient(rgb(149, 174, 113),rgb(190, 98, 195));
+    text-align: center;
+  }
+  .searchBox{
+    background-color: whitesmoke;
+    height: 1.4rem;
+    width: 80%;
+    border-radius: 10px;
+    text-align: center;
+  }
+  .searchMe{
+    text-align: center;
+    margin-bottom: 5px;
+  }
+  
+  .list-box {
+     display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 15rem;
+    margin-bottom: 1rem; 
+     border: 1px solid gray;
+    border-radius: 15px; 
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+   }
+  
+  .list-img {
+    height: 80%;
+  }
+  
+  .trending-box > * {
+    text-align: center;
+    background-color: grey;
+  }
+  
+  .FcCheckmark{
+    height: 20px;
+    width:20px; 
+    padding: 10px;
+    background-color: green;
+    border-radius: 16px;
+  cursor: pointer;
+  }
+  .FcPlus{
+    height: 20px;
+    width:20px; 
+    padding: 10px;
+    background-color: green;
+    border-radius: 16px;
+    cursor: pointer;
+  }   
+  .addToFavContainer{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: 0px;
+    right: 0px;
+  }
+  .list-box:hover{
+    transform: none;
+  }
+  }
+
+@media (min-width:400px)and (max-width:600px) { 
+  .trending-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-inline-start: 1rem;
+  }
+  .movieName{
+      font-size: 10px;
+  }
+  .contentBox{
+    background-image: linear-gradient(rgb(206, 154, 206),rgb(72, 36, 36),rgb(191, 191, 85),rgb(200, 108, 124),rgb(83, 53, 83),rgb(63, 94, 63));
+  }
+  .titleTrending{
+    background-image: linear-gradient(rgb(149, 174, 113),rgb(190, 98, 195));
+    text-align: center;
+  }
+  .searchBox{
+    background-color: whitesmoke;
+    height: 1.4rem;
+    width: 24rem;
+    border-radius: 10px;
+    text-align: center;
+  }
+  .searchMe{
+    text-align: center;
+    margin-bottom: 5px;
+  }
+  
+  .list-box {
+     display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 15rem;
+    margin-bottom: 1rem; 
+     border: 1px solid gray;
+    border-radius: 15px; 
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+   }
+  
+  .list-img {
+    height: 80%;
+  }
+  
+  .trending-box > * {
+    text-align: center;
+    background-color: grey;
+  }
+  
+  .FcCheckmark{
+    height: 20px;
+    width:20px; 
+    padding: 10px;
+    background-color: green;
+    border-radius: 16px;
+  cursor: pointer;
+  }
+  .FcPlus{
+    height: 20px;
+    width:20px; 
+    padding: 10px;
+    background-color: green;
+    border-radius: 16px;
+    cursor: pointer;
+  }   
+  .addToFavContainer{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: 0px;
+    right: 0px;
+  }
+  .list-box:hover{
+    transform: none;
+  }
+  }
+
+
+  @media (min-width:600px) and (max-width:900px){
+    .trending-box {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      margin-inline-start: 1rem;
+    }
+    .movieName{
+        font-size: 10px;
+    }
+    .contentBox{
+      background-image: linear-gradient(rgb(206, 154, 206),rgb(72, 36, 36),rgb(191, 191, 85),rgb(200, 108, 124),rgb(83, 53, 83),rgb(63, 94, 63));
+    }
+    .titleTrending{
+      background-image: linear-gradient(rgb(149, 174, 113),rgb(190, 98, 195));
+      text-align: center;
+    }
+    .searchBox{
+      background-color: whitesmoke;
+      height: 1.7rem;
+      width: 24rem;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .searchMe{
+      text-align: center;
+      margin-bottom: 5px;
+    }
+    
+    .list-box {
+       display: flex;
+      flex-direction: column;
+      width: 20%;
+      height: 20rem;
+      margin-bottom: 1rem; 
+       border: 1px solid gray;
+      border-radius: 15px; 
+      overflow: hidden;
+      transition: all 0.5s ease-in-out;
+     }
+    
+    .list-img {
+      height: 80%;
+    }
+    
+    .trending-box > * {
+      text-align: center;
+      background-color: grey;
+    }
+    
+    .FcCheckmark{
+      height: 20px;
+      width:20px; 
+      padding: 10px;
+      background-color: green;
+      border-radius: 16px;
+    cursor: pointer;
+    }
+    .FcPlus{
+      height: 20px;
+      width:20px; 
+      padding: 10px;
+      background-color: green;
+      border-radius: 16px;
+      cursor: pointer;
+    }   
+    .addToFavContainer{
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      top: 0px;
+      right: 0px;
+    }
+    .list-box:hover{
+      transform: none;
+    }
+    }
+  
+
+    @media (min-width:900px) and (max-width:2000px){
+      .trending-box {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      margin-inline-start: 1rem;
+    }
+    .contentBox{
+      background-image: linear-gradient(rgb(206, 154, 206),rgb(72, 36, 36),rgb(191, 191, 85),rgb(200, 108, 124),rgb(83, 53, 83),rgb(63, 94, 63));
+    }
+    .titleTrending{
+      background-image: linear-gradient(rgb(149, 174, 113),rgb(190, 98, 195));
+      text-align: center;
+    }
+    .searchBox{
+      background-color: whitesmoke;
+      height: 1.7rem;
+      width: 24rem;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .searchMe{
+      text-align: center;
+      margin-bottom: 5px;
+    }
+    
+    .list-box {
+       display: flex;
+      flex-direction: column;
+      width: 20%;
+      height: 26rem;
+      margin-bottom: 1rem; 
+       border: 1px solid gray;
+      border-radius: 15px; 
+      overflow: hidden;
+      transition: all 0.5s ease-in-out;
+     }
+    
+    .list-img {
+      height: 80%;
+    }
+    
+    .trending-box > * {
+      text-align: center;
+      background-color: grey;
+    }
+    
+    .FcCheckmark{
+      height: 30px;
+      width:30px; 
+      padding: 10px;
+      background-color: green;
+      border-radius: 16px;
+    cursor: pointer;
+    }
+    .FcPlus{
+      height: 30px;
+      width:30px; 
+      padding: 10px;
+      background-color: green;
+      border-radius: 16px;
+      cursor: pointer;
+    }   
+    .addToFavContainer{
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      top: 0px;
+      right: 0px;
+    }
+    .list-box:hover{
+      transform: scale(1.2);
+    }
+    }
+    

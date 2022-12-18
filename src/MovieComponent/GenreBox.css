@@ -1,0 +1,45 @@
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+  .genreBoxList{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(182, 213, 195);
+    padding: 20px;
+  }
+  .myBtn{
+    width: auto;
+    border-radius: 5px;
+    border: 0px;
+    cursor: pointer;
+    font-weight: bold; 
+    transition: all ;
+ }
+ .myBtn:hover{
+  transform: scale(2);
+ }
+
+ @media (max-width:600px){
+  .genreBoxList{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    background-color: rgb(182, 213, 195);
+  }
+  .myBtn{
+    width: auto;
+    border-radius: 5px;
+    border: 0px;
+    cursor: pointer;
+    font-weight: bolder;
+    font-size: 2rem; 
+    transition: none ;
+ }
+ .myBtn:hover{
+  transform: none;
+ }
+ }

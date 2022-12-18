@@ -1,0 +1,58 @@
+@media (min-width:900px){
+    .poster-img{
+    width:100vw;
+    height:60vh;
+    /* overflow: hidden; */
+    object-fit: fill ;
+    /* object-fit:cover; */
+}
+.BannerBox{
+   background-color:  rgb(149, 174, 113);
+}
+.originalTitle{
+    text-align: center;
+    background-color:rgb(149, 174, 113) ;
+}
+.description_firstMovie{
+    position:absolute;
+    bottom:17%;
+    text-align: center;
+    font-style: italic;
+    color: white;
+}}
+
+@media (max-width:600px){
+    .poster-img{
+        width:100vw;
+        height:30vh;
+        object-fit: fill ;
+        /* object-fit:cover; */
+    }
+    
+    .BannerBox{
+       background-color:  rgb(149, 174, 113);
+    }
+    .originalTitle{
+        text-align: center;
+        background-color:rgb(149, 174, 113) ;
+    }
+     .description_firstMovie{
+        display: none;
+    } 
+}
+
+@media (max-width:900px) and (min-width:600px){
+    .poster-img{
+        width: 100vw;
+        height: 40vh;
+    }
+    .BannerBox{
+        background-color:  rgb(149, 174, 113);
+     }
+     .originalTitle{
+         text-align: center;
+     } 
+.description_firstMovie{
+    display: none;
+}
+}
