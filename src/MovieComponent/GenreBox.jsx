@@ -206,6 +206,7 @@ const setButtonPressedHandler=(genre)=>{//task one side one
             return favGenre !== genreids[genrelistItem];
           });
           localStorage.setItem("genreList",JSON.stringify(deletedGenreList));
+          break;
         }
       }
   });
