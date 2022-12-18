@@ -97,7 +97,7 @@ import TableForData from './TableForData';
 
 function GenreBox() {
 
-  let [genreListData,setGenreListData]=useState([]);
+  const [genreListData,setGenreListData]=useState([]);
 const [favMovList,setFavMovList] = useState([]);
   useEffect(()=>{
     let genreList = JSON.parse(localStorage.getItem("genreList"||"[]"));
