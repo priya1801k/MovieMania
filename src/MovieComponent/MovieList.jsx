@@ -136,7 +136,7 @@ function MovieList(props) {
 }
 }else{
     //set genreList empty
-    localStorage.setItem("genreList",JSON.stringify(["AllGenres"]));
+    localStorage.setItem("genreList",JSON.stringify([]));
   }
   }
 
