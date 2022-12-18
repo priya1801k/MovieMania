@@ -520,7 +520,7 @@ let genreids = {28:'Action',12:'Adventure',16:'Animation',35:'Comedy',
   let starting_index = (globalPageNumber-1)*num;
   let ending_index = starting_index + num;
   // let favMov = JSON.parse(localStorage.getItem("favourites"));
-  let paginatedResult = popularMovies.slice(starting_index,ending_index) || "";
+  let paginatedResult = popularMovies? popularMovies.slice(starting_index,ending_index):[];
 
 
   return (
